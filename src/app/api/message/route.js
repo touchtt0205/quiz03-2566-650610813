@@ -52,25 +52,25 @@ export const POST = async (request) => {
 export const DELETE = async (request) => {
   const payload = checkToken();
 
-  if(!)
-  return NextResponse.json(
-    {
-      ok: false,
-      message: "Invalid token",
-    },
-    { status: 401 }
-  );
+  // if(!)
+  // return NextResponse.json(
+  //   {
+  //     ok: false,
+  //     message: "Invalid token",
+  //   },
+  //   { status: 401 }
+  // );
 
   readDB();
 
-  if(!)
-  return NextResponse.json(
-    {
-      ok: false,
-      message: "Message is not found",
-    },
-    { status: 404 }
-  );
+  // if(!)
+  // return NextResponse.json(
+  //   {
+  //     ok: false,
+  //     message: "Message is not found",
+  //   },
+  //   { status: 404 }
+  // );
 
   writeDB();
 
