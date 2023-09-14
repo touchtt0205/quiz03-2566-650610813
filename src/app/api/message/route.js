@@ -5,34 +5,46 @@ import { NextResponse } from "next/server";
 
 export const GET = async (request) => {
   readDB();
+  if(undefined)
+  return NextResponse.json(
+    {
+      ok: false,
+      message: `Room is not found`,
+    },
+    { status: 404 }
+  );
+  
+  return NextResponse.json({
+    ok: true,
+    message:DB.messages,
 
-  // return NextResponse.json(
-  //   {
-  //     ok: false,
-  //     message: `Room is not found`,
-  //   },
-  //   { status: 404 }
-  // );
+  });
+
+
 };
 
 export const POST = async (request) => {
   readDB();
+  const body = await request();
+  // const Room = 
 
-  // return NextResponse.json(
-  //   {
-  //     ok: false,
-  //     message: `Room is not found`,
-  //   },
-  //   { status: 404 }
-  // );
+  if(!roomId)
+  return NextResponse.json(
+    {
+      ok: false,
+      message: `Room is not found`,
+    },
+    { status: 404 }
+  );
 
   const messageId = nanoid();
+  DB.message.push(body);
 
   writeDB();
 
   return NextResponse.json({
     ok: true,
-    // messageId,
+    messageId,
     message: "Message has been sent",
   });
 };
@@ -40,23 +52,25 @@ export const POST = async (request) => {
 export const DELETE = async (request) => {
   const payload = checkToken();
 
-  // return NextResponse.json(
-  //   {
-  //     ok: false,
-  //     message: "Invalid token",
-  //   },
-  //   { status: 401 }
-  // );
+  if(!)
+  return NextResponse.json(
+    {
+      ok: false,
+      message: "Invalid token",
+    },
+    { status: 401 }
+  );
 
   readDB();
 
-  // return NextResponse.json(
-  //   {
-  //     ok: false,
-  //     message: "Message is not found",
-  //   },
-  //   { status: 404 }
-  // );
+  if(!)
+  return NextResponse.json(
+    {
+      ok: false,
+      message: "Message is not found",
+    },
+    { status: 404 }
+  );
 
   writeDB();
 
